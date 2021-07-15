@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8000
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 90 # 过期时长
+    lease-renewal-interval-in-seconds: 30    # 续约周期
+  client:
+    fetch-registry: false  # 是否从 Eureka Server 获取注册中心， 默认 true; 单节点设置为 false，无需同步其它节点
+    register-with-eureka: false # 是否将自己注册到 Eureka Server，默认 true; 单节点设置为 false
+    # Eureka Server 所在的地址，用于注册服务、查询服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
