@@ -4,12 +4,19 @@ spring:
 server:
   port: 9000
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8000/eureka/
 
 zuul:
   routes:
     helloworld:
-      path: /helloworld/**
+      path: /helloworld/**  #服务名这种方式默认路由，可不配置
+    baidu:
+      path: /baidu/**
+      url: https://www.baidu.com/
+    baidusearch:
+      path: /s
+      strip-prefix: false
+      url: https://www.baidu.com/
