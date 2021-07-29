@@ -1,0 +1,26 @@
+server:
+  port: 8002
+
+debug: true
+
+spring:
+  application:
+    name: httpformlogin
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: html
+    encoding: utf-8
+    content-type: text/html
+    cache: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8000/eureka/
+

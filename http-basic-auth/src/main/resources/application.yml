@@ -1,0 +1,28 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: httpbasicauth
+  security:
+    user:
+      name: test
+      password: test
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: html
+    encoding: utf-8
+    content-type: text/html
+    cache: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8000/eureka/
+

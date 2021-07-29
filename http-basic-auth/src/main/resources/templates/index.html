@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            color: white;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 16px/20px microsft yahei;
+         }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            padding: 10% 0;
+            position: fixed;
+            opacity: 0.8;
+            background: linear-gradient(to bottom right,#000000, #656565);
+            background: -webkit-linear-gradient(to bottom right,#50a3a2,#53e3a6);
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .container h1 {
+            text-align: center;
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+        .container input {
+            outline：none
+            width: 320px;
+            height: 36px;
+            border: 0;
+            outline: 0;
+            padding: 6px 10px;
+            line-height: 24px;
+            margin: 32px auto;
+            -webkit-transition: all 0s ease-in 0.1ms;
+            -moz-transition: all 0s ease-in 0.1ms;
+            transition: all 0s ease-in 0.1ms;
+        }
+        .container input[type="text"]{
+            background-color: #FFFFFF;
+            font-size: 16px;
+            color: #50a3a2;
+        }
+        .container input[type='submit'] {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #666666;
+            background-color: #FFFFFF;
+        }
+        .container input[type='submit']:hover {
+            cursor: pointer;
+            font-weight:bold;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="container">
+        <h3 style="color: white; margin: 0; text-align: center">基本登陆</h3>
+        <form style="text-align: center;">
+            <label>登陆用户:<input type="text" th:value="${username}"/></label>
+        </form>
+    </div>
+</div>
+</body>
+</html>
