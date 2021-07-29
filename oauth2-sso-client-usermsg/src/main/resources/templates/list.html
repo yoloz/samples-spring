@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>人员信息列表</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            color: white;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 16px/20px microsft yahei;
+         }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            padding: 10% 0;
+            position: fixed;
+            opacity: 0.8;
+            background: linear-gradient(to bottom right,#000000, #656565);
+            background: -webkit-linear-gradient(to bottom right,#50a3a2,#53e3a6);
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+   table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,th {
+    padding: 0;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.pure-table td {
+    background-color: transparent;
+}
+
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.pure-table-bordered tbody>tr:last-child>td {
+    border-bottom-width: 0;
+}
+
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="container">
+        <h3>当前登录用户：<span th:text="${username}"></span></h3>
+        <table class="pure-table pure-table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>手机号</th>
+                <th>地址</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.age}"></td>
+                <td th:text="${user.phone}"></td>
+                <td th:text="${user.addr}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

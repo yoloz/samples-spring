@@ -71,10 +71,10 @@ http-form-Login模式的三要素：
 port:8003
 
 ### 授权服务器验证
-1. 访问`http://192.168.90.122:8003/oauth/authorize?client_id=client1&response_type=code&redirect_uri=http://www.baidu.com`
+1. 访问`http://192.168.90.122:8003/oauth/authorize?client_id=test&response_type=code&redirect_uri=http://www.baidu.com`
 2. 跳转到SpringSecurity默认的登录页面,输入用户名/密码：test/test，点击登录后跳转到确认授权页面
 3. 至少选中一个，然后点击Authorize按钮，跳转到`https://www.baidu.com/?code=tg0GDq`
-4. 通过授权码code申请token`http://192.168.90.122:8003/oauth/token?grant_type=authorization_code&client_id=client1&client_secret=client1-secret&code=tg0GDq&redirect_uri=http://www.baidu.com`
+4. 通过授权码code申请token`http://192.168.90.122:8003/oauth/token?grant_type=authorization_code&client_id=test&client_secret=test&code=tg0GDq&redirect_uri=http://www.baidu.com`
 
 ## caution
 

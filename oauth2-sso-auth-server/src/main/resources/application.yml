@@ -6,9 +6,6 @@ debug: true
 spring:
   application:
     name: oauth2SSOAuthServer
-  resources:
-    chain:
-      strategy:
-        content:
-          enabled: true
-          paths: /**
+
+security:
+

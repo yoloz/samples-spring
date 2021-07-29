@@ -1,4 +1,4 @@
-package indi.yoloz.example.oauth2.sso.security;
+package indi.yoloz.example.oauth2.sso.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -33,13 +33,21 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
+                .withClient("test")
+                .secret(passwordEncoder.encode("test"))
+                .authorizedGrantTypes("implicit", "authorization_code", "client_credentials")
+                .scopes("read", "write", "webclient")
+                .autoApprove(false)
+                .accessTokenValiditySeconds(3600)
+                .redirectUris("http://www.baidu.com")
+                .and()
                 .withClient("client1")
                 .secret(passwordEncoder.encode("client1-secret"))
                 .authorizedGrantTypes("implicit", "authorization_code", "client_credentials")
                 .scopes("read", "write", "webclient")
                 .autoApprove(false)
                 .accessTokenValiditySeconds(3600)
-                .redirectUris("http://www.baidu.com")
+                .redirectUris("http://192.168.90.123:8004/client1/login")
                 .and()
                 .withClient("client2")
                 .secret(passwordEncoder.encode("client2-secret"))
@@ -47,7 +55,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("read", "write", "webclient")
                 .autoApprove(false)
                 .accessTokenValiditySeconds(3600)
-                .redirectUris("http://www.baidu.com");
+                .redirectUris("http://192.168.90.123:8005/client2/login");
     }
 
     @Override

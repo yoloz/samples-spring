@@ -1,0 +1,21 @@
+server:
+  port: 8004
+  servlet:
+    context-path: /client1
+
+debug: true
+
+spring:
+  application:
+    name: oauth2ssoclientusermsg
+security:
+  oauth2:
+    client:
+      client-id: client1
+      client-secret: client1-secret
+      access-token-uri: http://192.168.90.123:8003/oauth/token
+      user-authorization-uri: http://192.168.90.123:8003/oauth/authorize
+    resource:
+      jwt:
+        key-uri: http://192.168.90.123:8003/oauth/token_key
+        key-value: yoloz

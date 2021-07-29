@@ -21,6 +21,7 @@
         <module>http-form-login</module>
         <module>zuul</module>
         <module>oauth2-sso-auth-server</module>
+        <module>oauth2-sso-client-usermsg</module>
     </modules>
 
     <properties>

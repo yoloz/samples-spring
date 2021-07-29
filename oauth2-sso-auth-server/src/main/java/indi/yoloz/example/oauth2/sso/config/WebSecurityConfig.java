@@ -1,4 +1,4 @@
-package indi.yoloz.example.oauth2.sso.security;
+package indi.yoloz.example.oauth2.sso.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

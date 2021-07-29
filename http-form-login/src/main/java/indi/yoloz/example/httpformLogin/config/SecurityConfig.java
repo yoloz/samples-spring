@@ -1,4 +1,4 @@
-package indi.yoloz.example.httpformLogin.security;
+package indi.yoloz.example.httpformLogin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
