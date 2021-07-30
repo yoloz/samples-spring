@@ -1,7 +1,7 @@
 server:
   port: 8003
 
-debug: true
+#debug: true
 
 spring:
   application:
