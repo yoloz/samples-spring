@@ -47,7 +47,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("read", "write", "webclient")
                 .autoApprove(false)
                 .accessTokenValiditySeconds(3600)
-                .redirectUris("http://192.168.90.123:8004/client1/login")
+                .redirectUris("http://192.168.90.124:8004/client1/login")
                 .and()
                 .withClient("client2")
                 .secret(passwordEncoder.encode("client2-secret"))
@@ -55,7 +55,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("read", "write", "webclient")
                 .autoApprove(false)
                 .accessTokenValiditySeconds(3600)
-                .redirectUris("http://192.168.90.123:8005/client2/login");
+                .redirectUris("http://192.168.90.124:8005/client2/login");
     }
 
     @Override

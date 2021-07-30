@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>上传下载</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+       * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 16px/20px microsft yahei;
+         }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            padding: 10% 0;
+            position: fixed;
+            opacity: 0.8;
+            background: linear-gradient(to bottom right,#000000, #656565);
+            background: -webkit-linear-gradient(to bottom right,#50a3a2,#53e3a6);
+            color: white;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .container input {
+            width: 320px;
+            display: block;
+            height: 36px;
+            border: 0;
+            outline: 0;
+            padding: 6px 10px;
+            line-height: 24px;
+            margin: 32px auto;
+            -webkit-transition: all 0s ease-in 0.1ms;
+            -moz-transition: all 0s ease-in 0.1ms;
+            transition: all 0s ease-in 0.1ms;
+        }
+        .container input[type="text"] , .container input[type="password"]  {
+            background-color: #FFFFFF;
+            font-size: 16px;
+            color: #50a3a2;
+        }
+        .container input[type='submit'] {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #666666;
+            background-color: #FFFFFF;
+        }
+        .container input[type='submit']:hover {
+            cursor: pointer;
+            font-weight:bold;
+        }
+     table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+td,th {
+    padding: 0;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.pure-table td {
+    background-color: transparent;
+}
+
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.pure-table-bordered tbody>tr:last-child>td {
+    border-bottom-width: 0;
+}
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="container">
+        <h3>当前登录用户：<span th:text="${username}"></span></h3>
+        <form enctype="multipart/form-data" method="post" action="#" th:action="@{/upload} + '?' + ${_csrf.parameterName} + '=' + ${_csrf.token}">
+            <label><input type="file" name="file"/></label>
+            <input type="submit" value="上传"/>
+        </form>
+        <hr/>
+        <table class="pure-table pure-table-bordered">
+            <thead>
+            <tr>
+                <th>文件名</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="file : ${fileList}">
+                <td th:text="${file}"></td>
+                <td><form th:action="@{/download}" method="post">
+                    <input type="hidden" name="filename" th:value="${file}">
+                    <input type="submit" value="下载"/>
+                </form></td>
+                <td><form th:action="@{/delete}" method="post">
+                    <input type="hidden" name="filename" th:value="${file}">
+                    <input type="submit" value="删除"/>
+                </form></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

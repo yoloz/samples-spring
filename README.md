@@ -76,6 +76,17 @@ port:8003
 3. 至少选中一个，然后点击Authorize按钮，跳转到`https://www.baidu.com/?code=tg0GDq`
 4. 通过授权码code申请token`http://192.168.90.122:8003/oauth/token?grant_type=authorization_code&client_id=test&client_secret=test&code=tg0GDq&redirect_uri=http://www.baidu.com`
 
+## oauth2-sso-client-usermsg
+
+port:8004
+
+访问`http://192.168.90.122:8004/client1`
+
+## oauth2-sso-client-updw
+
+上传下载 port:8005
+访问`http://192.168.90.122:8005/client2`
+
 ## caution
 
 2021-07:
@@ -84,3 +95,5 @@ port:8003
 依赖spring-boot版本2.3.12.RELEASE中的spring-boot-autoconfigure,对应的cloud版本是Hoxton.SR12
 
 * http-basic-auth使用cloud版本2020.3会找不到spring-cloud-starter-security,改用版本Hoxton.SR12
+
+* sso-client需要配置servlet-context，否则认证后被拦截继续认证，然后又拦截认证

@@ -23,8 +23,8 @@ import java.util.Random;
 @Controller
 public class UserMsgController {
 
-    @RequestMapping({"/", "/list"})
-    public String list(HttpServletRequest request, Model model) {
+    @RequestMapping("/")
+    public String index(HttpServletRequest request, Model model) {
         List<UserInfo> list = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
@@ -40,7 +40,7 @@ public class UserMsgController {
         model.addAttribute("userList", list);
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("username",principal);
-        return "list";
+        return "index";
     }
 
 

@@ -22,6 +22,7 @@
         <module>zuul</module>
         <module>oauth2-sso-auth-server</module>
         <module>oauth2-sso-client-usermsg</module>
+        <module>oauth2-sso-client-updw</module>
     </modules>
 
     <properties>

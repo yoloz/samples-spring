@@ -1,21 +1,24 @@
 server:
-  port: 8004
+  port: 8005
   servlet:
-    context-path: /client1
-#??context-path????/????????code???????
+    context-path: /client2
+
 #debug: true
 
 spring:
-  application:
-    name: oauth2ssoclientusermsg
+  applicaion:
+    name: oauth2ssoclientupdw
   thymeleaf:
     cache: false
+
+yoloz:
+  uploadPath: /tmp
 
 security:
   oauth2:
     client:
-      client-id: client1
-      client-secret: client1-secret
+      client-id: client2
+      client-secret: client2-secret
       access-token-uri: http://192.168.90.124:8003/oauth/token
       user-authorization-uri: http://192.168.90.124:8003/oauth/authorize
     resource:

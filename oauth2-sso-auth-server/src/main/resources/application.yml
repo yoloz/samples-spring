@@ -6,6 +6,6 @@ debug: true
 spring:
   application:
     name: oauth2SSOAuthServer
-
-security:
+  thymeleaf:
+    cache: false
 
