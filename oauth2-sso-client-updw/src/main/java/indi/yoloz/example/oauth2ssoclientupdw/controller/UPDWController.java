@@ -67,6 +67,22 @@ public class UPDWController {
         return "index";
     }
 
+    @RequestMapping("/upload/api")
+    @ResponseBody
+    public String upload(@RequestParam("file") MultipartFile file) {
+        String fileName = Optional.ofNullable(file.getOriginalFilename()).orElse(file.getName());
+        if (exists.containsKey(fileName)) fileName = fileName + "_1";
+        String path = Paths.get(uploadPath, fileName).toString();
+        try (FileOutputStream out = new FileOutputStream(path)) {
+            out.write(file.getBytes());
+            out.flush();
+            exists.put(fileName, path);
+        } catch (IOException e) {
+           return e.getMessage();
+        }
+        return fileName;
+    }
+
     @RequestMapping("/download")
     public String downLoad(@RequestParam("filename") String fileName, HttpServletResponse response) throws IOException {
         File file = Paths.get(uploadPath, fileName).toFile();
@@ -90,9 +106,18 @@ public class UPDWController {
         return null;
     }
 
+    @RequestMapping("/delete/api")
+    @ResponseBody
+    public String delete(@RequestParam("filename") String fileName) throws IOException {
+        if (Files.deleteIfExists(Paths.get(uploadPath, fileName))) {
+            exists.remove(fileName);
+        }
+        return "delete " + fileName;
+    }
+
     @RequestMapping("/delete")
-    public String delete(@RequestParam("filename") String fileName,Model model) throws IOException {
-        if(Files.deleteIfExists(Paths.get(uploadPath, fileName))){
+    public String delete(@RequestParam("filename") String fileName, Model model) throws IOException {
+        if (Files.deleteIfExists(Paths.get(uploadPath, fileName))) {
             exists.remove(fileName);
         }
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

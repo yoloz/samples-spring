@@ -4,7 +4,6 @@ import indi.yoloz.example.oauth2ssoclientusermsg.model.UserInfo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,10 +38,27 @@ public class UserMsgController {
         }
         model.addAttribute("userList", list);
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("username",principal);
+        model.addAttribute("username", principal);
         return "index";
     }
 
+    @RequestMapping("/api")
+    @ResponseBody
+    public List<UserInfo> index() {
+        List<UserInfo> list = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(i);
+            userInfo.setName("test" + i);
+            userInfo.setAge(random.nextInt(50));
+            userInfo.setPhone("1547216148" + i);
+            userInfo.setEmail("test" + i + "@126.com");
+            userInfo.setAddr("浙江省杭州市滨江区");
+            list.add(userInfo);
+        }
+        return list;
+    }
 
     @RequestMapping("/info")
     @ResponseBody
