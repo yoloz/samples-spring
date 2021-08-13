@@ -5,18 +5,18 @@ package indi.yoloz.example.oauth2ssoclientusermsg.model;
  */
 public class UserInfo {
 
-    private int id;
+    private long id;
     private String name;
     private int age;
     private String phone;
     private String addr;
     private String email;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

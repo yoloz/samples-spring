@@ -26,9 +26,10 @@ public class UserMsgController {
     public String index(HttpServletRequest request, Model model) {
         List<UserInfo> list = new ArrayList<>();
         Random random = new Random();
+        long start = 440106198202020550L;
         for (int i = 0; i < 10; i++) {
             UserInfo userInfo = new UserInfo();
-            userInfo.setId(i);
+            userInfo.setId(start + i);
             userInfo.setName("test" + i);
             userInfo.setAge(random.nextInt(50));
             userInfo.setPhone("1547216148" + i);
@@ -47,9 +48,10 @@ public class UserMsgController {
     public List<UserInfo> index() {
         List<UserInfo> list = new ArrayList<>();
         Random random = new Random();
+        long start = 440106198202020550L;
         for (int i = 0; i < 10; i++) {
             UserInfo userInfo = new UserInfo();
-            userInfo.setId(i);
+            userInfo.setId(start + i);
             userInfo.setName("test" + i);
             userInfo.setAge(random.nextInt(50));
             userInfo.setPhone("1547216148" + i);
