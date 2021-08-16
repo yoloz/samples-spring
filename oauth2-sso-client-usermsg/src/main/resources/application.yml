@@ -1,8 +1,8 @@
 server:
   port: 8004
   servlet:
-    context-path: /client1
-#??context-path????/????????code???????
+    context-path: /user
+
 #debug: true
 
 spring:
@@ -16,9 +16,9 @@ security:
     client:
       client-id: client1
       client-secret: client1-secret
-      access-token-uri: http://192.168.90.124:8003/oauth/token
-      user-authorization-uri: http://192.168.90.124:8003/oauth/authorize
+      access-token-uri: http://127.0.0.1:8003/oauth/token
+      user-authorization-uri: http://127.0.0.1:8003/oauth/authorize
     resource:
       jwt:
-        key-uri: http://192.168.90.124:8003/oauth/token_key
+        key-uri: http://127.0.0.1:8003/oauth/token_key
         key-value: yoloz
