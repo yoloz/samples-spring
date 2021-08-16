@@ -70,26 +70,33 @@ http-form-Login模式的三要素：
 
 port:8003
 
-### 授权码服务器验证
-1. 访问`http://192.168.90.122:8003/oauth/authorize?client_id=test&response_type=code&redirect_uri=http://www.baidu.com`
-2. 跳转到SpringSecurity默认的登录页面,输入用户名/密码：test/test，点击登录后跳转到确认授权页面
-3. 至少选中一个，然后点击Authorize按钮，跳转到`https://www.baidu.com/?code=tg0GDq`
-4. 通过授权码code申请token`http://192.168.90.122:8003/oauth/token?grant_type=authorization_code&client_id=test&client_secret=test&code=4AwoG0&redirect_uri=http://www.baidu.com`
-
 ## oauth2-sso-client-usermsg
 
 port:8004
 
-访问`http://192.168.90.122:8004/client1`
+访问`http://127.0.0.1:8004/user`
 
 ### 凭证式验证
-1. 访问`http://192.168.90.122:8003/oauth/token?grant_type=client_credentials&client_id=client1&client_secret=client1-secret`
-2. 访问`http://192.168.90.122:8004/client1/api`获取数据，HEADER需添加`Authorization: Bearer ACCESS_TOKEN`
+
+`@EnableResourceServer`
+
+1. 访问`http://127.0.0.1:8003/oauth/token?grant_type=client_credentials&client_id=client1&client_secret=client1-secret`
+2. 访问`http://127.0.0.1:8004/client1/api`获取数据，HEADER需添加`Authorization: Bearer ACCESS_TOKEN`
+
+### 授权码服务器验证
+
+`@EnableOAuth2Sso`
+
+1. 访问`http://127.0.0.1:8003/oauth/authorize?client_id=test&response_type=code&redirect_uri=http://www.baidu.com`
+2. 跳转到SpringSecurity默认的登录页面,输入用户名/密码：test/test，点击登录后跳转到确认授权页面
+3. 至少选中一个，然后点击Authorize按钮，跳转到`https://www.baidu.com/?code=tg0GDq`
+4. 通过授权码code申请token`http://127.0.0.1:8003/oauth/token?grant_type=authorization_code&client_id=test&client_secret=test&code=4AwoG0&redirect_uri=http://www.baidu.com`
 
 ## oauth2-sso-client-updw
 
 上传下载 port:8005
-访问`http://192.168.90.122:8005/client2`
+
+访问`http://127.0.0.1:8005/updw`
 
 ## caution
 
