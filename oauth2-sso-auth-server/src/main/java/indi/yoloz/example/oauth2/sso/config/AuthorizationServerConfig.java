@@ -55,7 +55,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("read", "write", "webclient")
                 .autoApprove(false)
                 .accessTokenValiditySeconds(3600)
-                .redirectUris("http://127.0.0.1:8005/udpw/login");
+                .redirectUris("http://127.0.0.1:8005/updw/login");
     }
 
     @Override
