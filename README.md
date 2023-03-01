@@ -33,7 +33,7 @@ request:
 
 ## http认证
 
-http-basic-auth port: 8001
+http-basic-auth port: 8001  test/test
 
 Basic模式认证过程如下：
 1. 浏览器发送http报文请求一个受保护的资源。
@@ -57,7 +57,7 @@ Basic认证的优点是基本上所有流行的网页浏览器都支持，一般
 
 ## 表单认证
 
-http-form-login port:8002
+http-form-login port:8002  test/test
 
 http-form-Login模式的三要素：
 * 登录验证逻辑
