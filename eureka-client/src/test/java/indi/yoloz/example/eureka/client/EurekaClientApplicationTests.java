@@ -1,6 +1,6 @@
-package indi.yoloz.example.helloworld;
+package indi.yoloz.example.eureka.client;
 
-import indi.yoloz.example.helloworld.controller.HelloWorldController;
+import indi.yoloz.example.eureka.client.controller.ECController;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -16,18 +16,18 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
  */
 
 @SpringBootTest
-class HelloWorldApplicationTests {
+class EurekaClientApplicationTests {
 
     private MockMvc mockMvc;
 
     @BeforeTestClass
     public void setUp() throws Exception {
-        mockMvc = MockMvcBuilders.standaloneSetup(new HelloWorldController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(new ECController()).build();
     }
 
     @Test
     public void getHello() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/hello/say").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();

@@ -1,4 +1,4 @@
-package indi.yoloz.example.eureka;
+package indi.yoloz.example.eureka.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

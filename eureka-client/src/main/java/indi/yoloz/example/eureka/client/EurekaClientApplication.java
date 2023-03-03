@@ -1,13 +1,13 @@
-package indi.yoloz.example.helloworld;
+package indi.yoloz.example.eureka.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HelloWorldApplication {
+public class EurekaClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloWorldApplication.class, args);
+		SpringApplication.run(EurekaClientApplication.class, args);
 	}
 
 }

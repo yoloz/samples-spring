@@ -4,7 +4,7 @@
 
 port: 8000
 
-## helloworld
+## eureka-client
 
 port: 9090
 
@@ -104,7 +104,5 @@ port:8004
 * 使用spring-cloud版本2020.3的时候,spring-cloud-starter-netflix-zuul兼容有点问题
 `Caused by: java.lang.NoSuchMethodError: org.springframework.boot.web.servlet.error.ErrorController.getErrorPath()Ljava/lang/String;`
 依赖spring-boot版本2.3.12.RELEASE中的spring-boot-autoconfigure,对应的cloud版本是Hoxton.SR12
-
-* http-basic-auth使用cloud版本2020.3会找不到spring-cloud-starter-security,改用版本Hoxton.SR12
 
 * sso-client需要配置servlet-context，否则认证后被拦截继续认证，然后又拦截认证
