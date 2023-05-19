@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    username: test
+    password: test
+    showSql: true
+    batchSize: 50
+    filters: wall,mergeStat
+#    url: jdbc:mysql://10.99.40.154:3308/athenasec
+    url: jdbc:mysql://192.168.1.250:10000/253mysql
+    driverClassName: com.zhds.dcap.jdbc.sdk.JdbcDriver
+    type: com.alibaba.druid.pool.DruidDataSource
